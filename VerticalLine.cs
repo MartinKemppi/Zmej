@@ -8,6 +8,9 @@ namespace Zmej
 {
     class VerticalLine : Figure
     {
+        //Movement correction and frame reset > Loeng 9 -> Loeng 10
+
+
         //public VerticalLine(int yUp, int yDown, int x, char sym)
         //{
         //    pList = new List<Point>();
