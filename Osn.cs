@@ -11,7 +11,11 @@ namespace Zmej
     {
         public static void Main(string[] args)
         {
-            Console.SetBufferSize( 80,25 );
+            //Console.SetBufferSize( 80,25 );
+            const int consoleWidth = 80;
+            const int consoleHeight = 25;
+
+            Console.SetWindowSize(consoleWidth, consoleHeight);
 
             //Frame
             HorizontalLine upLine = new HorizontalLine(0, 78, 0, '+');
@@ -28,22 +32,16 @@ namespace Zmej
             Snake snake = new Snake(p, 4, Direction.RIGHT);
             snake.Drow();
 
-            snake.Move();
-            Thread.Sleep(300);
-            snake.Move();
-            Thread.Sleep(300);
-            snake.Move();
-            Thread.Sleep(300);
-            snake.Move();
-            Thread.Sleep(300);
-            snake.Move();
-            Thread.Sleep(300);
-            snake.Move();
-            Thread.Sleep(300);
-            snake.Move();
-            Thread.Sleep(300);
-            snake.Move();
-            Thread.Sleep(300);
+            while(true)
+            {
+                if(Console.KeyAvailable)
+                {
+                    ConsoleKeyInfo key = Console.ReadKey();
+                    snake.HandleKey( key.Key);
+                }
+                Thread.Sleep (100);
+                snake.Move();
+            }
 
         }
 
