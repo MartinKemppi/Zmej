@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Zmej
 {
-    internal class Point
+    class Point
     {
         public int x;
         public int y;
