@@ -1,22 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Zmej
 {
-    class VerticalLine : Figure
+    class HorizontalLine : Figure
     {
-        public VerticalLine(int yUp, int yDown, int x, char sym)
+        public HorizontalLine(int xLeft, int xRight, int y, char sym)
         {
             pList = new List<Point>();
-            for (int y = yUp; x <= yDown; x++)
+            for (int x = xLeft; x <= xRight; x++)
             {
                 Point p = new Point(x, y, sym);
                 pList.Add(p);
             }
-
         }
     }
 }
