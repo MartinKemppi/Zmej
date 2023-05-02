@@ -36,9 +36,9 @@ namespace Zmej
             Point food = foodCreator.CreateFood();
             food.Draw();
 
-            while(true)
+            while (true)
             {
-                if(snake.Eat( food ))
+                if (snake.Eat(food))
                 {
                     food = foodCreator.CreateFood();
                     food.Draw();
@@ -47,20 +47,16 @@ namespace Zmej
                 {
                     snake.Move();
                 }
-            }
 
-            while(true)
-            {
-                if(Console.KeyAvailable)
+                Thread.Sleep(100);
+
+                if (Console.KeyAvailable)
                 {
                     ConsoleKeyInfo key = Console.ReadKey();
-                    snake.HandleKey( key.Key);
+                    snake.HandleKey(key.Key);
                 }
-                Thread.Sleep (100);
-                snake.Move();
             }
 
         }
-
     }
 }
