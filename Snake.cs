@@ -52,5 +52,21 @@ namespace Zmej
             else if (key == ConsoleKey.UpArrow)
                 direction = Direction.UP;
         }
+
+        internal bool Eat( Point food)
+        {
+            Point head = GetNextPoint() ;
+            //if (head.IsHit( food))
+            if(head.x == food.x && head.y == food.y)
+            {
+                food.sym = head.sym;
+                pList.Add( food );
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }
