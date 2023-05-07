@@ -9,6 +9,7 @@ namespace Zmej
 {
     class Snake : Figure
     {
+        private int score;
         Direction direction;
          public Snake(Point tail, int length, Direction _direction)
         {
@@ -20,6 +21,7 @@ namespace Zmej
                 p.Move( i, direction );
                 pList.Add( p ) ;
             }
+            score = 0;
         }
 
         internal void Move()
@@ -72,12 +74,14 @@ namespace Zmej
             {
                 food.sym = head.sym;
                 pList.Add( food );
+                score++;
                 return true;
+
             }
             else
             {
                 return false;
             }
-        }
+        }       
     }
 }
