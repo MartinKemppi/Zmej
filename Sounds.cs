@@ -6,47 +6,59 @@ using System.Threading.Tasks;
 using System.Media;
 using System.ComponentModel;
 using System.Numerics;
-using WMPLib;
+using NAudio;
+using NAudio.Wave;
 
 namespace Zmej
 {
     public class Sounds
     {
-
-        WindowsMediaPlayer player = new WindowsMediaPlayer();
+        private IWavePlayer waveOutDevice;
+        private AudioFileReader audioFileReader;
         private string pathToMedia;
-
+        private Sounds sounds;
         public Sounds(string pathToResources)
         {
             pathToMedia = pathToResources;
+            waveOutDevice = new WaveOutEvent();
+            audioFileReader = new AudioFileReader(pathToMedia + "/Snake Music.mp3");
+            waveOutDevice.Init(audioFileReader);
+            waveOutDevice.Play();
         }
 
-        public void Play()
+        public void PlayFont()
         {
-            player.URL = pathToMedia + "Snake Music.mp3";
-            player.settings.volume = 30;
-            player.controls.play();
-            player.settings.setMode("loop", true);
+            waveOutDevice.Stop();
+            audioFileReader = new AudioFileReader(pathToMedia + "/Snake Music.mp3");
+            waveOutDevice.Init(audioFileReader);
+            waveOutDevice.Play();
         }
 
-        public void Play(string songName)
+        public void PlayEatSound()
         {
-            player.URL = pathToMedia + songName + ".mp3";
-            player.controls.play();
-        }
-
-        public void PlayEat()
-        {
-            player.URL = pathToMedia + "Eat.wav";
-            player.settings.volume = 30;
-            player.controls.play();
+            waveOutDevice.Stop();
+            audioFileReader = new AudioFileReader(pathToMedia + "/Eat.wav");
+            waveOutDevice.Init(audioFileReader);
+            waveOutDevice.Play();
         }
 
         public void PlayGameOver()
         {
-            player.URL = pathToMedia + "gameover.mp3";
-            player.controls.play();
+            waveOutDevice.Stop();
+            audioFileReader = new AudioFileReader(pathToMedia + "/gameover.mp3");
+            waveOutDevice.Init(audioFileReader);
+            waveOutDevice.Play();
+        }
+
+        public void Stop()
+        {
+            waveOutDevice.Stop();
+        }
+
+        public void Dispose()
+        {
+            waveOutDevice.Dispose();
+            audioFileReader.Dispose();
         }
     }
-
 }

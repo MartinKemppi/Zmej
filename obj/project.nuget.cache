@@ -1,9 +1,22 @@
 {
   "version": 2,
-  "dgSpecHash": "yb2gemKKpcm2OK9PH6vQWP9Aq0KP+wERXnDu0BmnxACIRfYHr298ynT9H5d7vWpXlT8udhB+BTJ/h709KQkrxQ==",
+  "dgSpecHash": "8hGIYETQBVucZmcaY41/0W3g/CV6CvhUFKul1LpbO8YAzkUjuHGLVaxH+dNV9Aaxsdl7psjbCJ88m9larAg3ng==",
   "success": true,
   "projectFilePath": "C:\\Users\\Matti\\source\\repos\\Zmej-master\\Zmej.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Matti\\.nuget\\packages\\microsoft.netcore.platforms\\5.0.0\\microsoft.netcore.platforms.5.0.0.nupkg.sha512",
+    "C:\\Users\\Matti\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
+    "C:\\Users\\Matti\\.nuget\\packages\\microsoft.win32.systemevents\\5.0.0\\microsoft.win32.systemevents.5.0.0.nupkg.sha512",
+    "C:\\Users\\Matti\\.nuget\\packages\\naudio\\2.1.0\\naudio.2.1.0.nupkg.sha512",
+    "C:\\Users\\Matti\\.nuget\\packages\\naudio.asio\\2.1.0\\naudio.asio.2.1.0.nupkg.sha512",
+    "C:\\Users\\Matti\\.nuget\\packages\\naudio.core\\2.1.0\\naudio.core.2.1.0.nupkg.sha512",
+    "C:\\Users\\Matti\\.nuget\\packages\\naudio.midi\\2.1.0\\naudio.midi.2.1.0.nupkg.sha512",
+    "C:\\Users\\Matti\\.nuget\\packages\\naudio.wasapi\\2.1.0\\naudio.wasapi.2.1.0.nupkg.sha512",
+    "C:\\Users\\Matti\\.nuget\\packages\\naudio.waveformrenderer\\2.0.0\\naudio.waveformrenderer.2.0.0.nupkg.sha512",
+    "C:\\Users\\Matti\\.nuget\\packages\\naudio.winmm\\2.1.0\\naudio.winmm.2.1.0.nupkg.sha512",
+    "C:\\Users\\Matti\\.nuget\\packages\\system.drawing.common\\5.0.1\\system.drawing.common.5.0.1.nupkg.sha512",
+    "C:\\Users\\Matti\\.nuget\\packages\\system.security.accesscontrol\\4.7.0\\system.security.accesscontrol.4.7.0.nupkg.sha512",
+    "C:\\Users\\Matti\\.nuget\\packages\\system.security.principal.windows\\4.7.0\\system.security.principal.windows.4.7.0.nupkg.sha512",
     "C:\\Users\\Matti\\.nuget\\packages\\wmplib\\1.0.0\\wmplib.1.0.0.nupkg.sha512"
   ],
   "logs": [

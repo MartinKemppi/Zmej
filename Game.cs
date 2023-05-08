@@ -22,8 +22,8 @@ namespace Zmej
             snake = new Snake(p, 4, Direction.RIGHT);
             snake.Draw();
             foodCreator = new FoodCreator(width, height, '$');
-            Sounds sounds = new Sounds(".");
-            sounds.Play("Snake Music");
+            sounds = new Sounds(".");
+            sounds.PlayFont();
         }
 
         public void Run()
@@ -36,7 +36,7 @@ namespace Zmej
                 if (walls.IsHit(snake) || snake.IsHitTail())
                 {
                     // play game over sound
-                    sounds.Play("gameover");
+                    sounds.PlayGameOver();
                     EndGame();
                     break;
                 }
@@ -47,7 +47,9 @@ namespace Zmej
                     food = foodCreator.CreateFood();
                     food.Draw();
                     // play eat sound
-                    sounds.PlayEat();
+                    sounds.PlayEatSound();
+                    Thread.Sleep(200);
+                    sounds.PlayFont();
                 }
                 else
                 {
@@ -76,9 +78,6 @@ namespace Zmej
             {
                 writer.WriteLine(line);
             }
-
-            // play game over sound
-            sounds.Play("gameover");
         }
 
         public static void ShowLeaderboard(int topN)
