@@ -50,6 +50,14 @@ namespace Zmej
             waveOutDevice.Play();
         }
 
+        public void PlayWin()
+        {
+            waveOutDevice.Stop();
+            audioFileReader = new AudioFileReader(pathToMedia + "/Win.mp3");
+            waveOutDevice.Init(audioFileReader);
+            waveOutDevice.Play();
+        }
+
         public void Stop()
         {
             waveOutDevice.Stop();
