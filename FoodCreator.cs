@@ -10,10 +10,8 @@ namespace Zmej
     {
         private int mapWidth;
         private int mapHeight;
-        private char foodSym;
-        private char specialFoodSym1;
-        private char specialFoodSym2;
-        private char specialFoodSym3;
+        private char foodsym;
+
 
         Random random = new Random();
 
@@ -21,18 +19,12 @@ namespace Zmej
             (
                         int mapWidth, 
                         int mapHeight, 
-                        char foodSym, 
-                        char specialFoodSym1, 
-                        char specialFoodSym2,
-                        char specialFoodSym3
+                        char foodsym
             )
         {
             this.mapWidth = mapWidth;
             this.mapHeight = mapHeight;
-            this.foodSym = foodSym;
-            this.specialFoodSym1 = specialFoodSym1;
-            this.specialFoodSym2 = specialFoodSym2;
-            this.specialFoodSym3 = specialFoodSym3;
+            this.foodsym = foodsym;
         }
 
         public Point CreateFood()
@@ -42,20 +34,20 @@ namespace Zmej
 
             if (random.Next(1, 21) < 3)
             {
-                return new Point(x, y, specialFoodSym1);
+                return new Point(x, y, '#');
             }
             else if (random.Next(1, 21) < 5)
             {
-                return new Point(x, y, specialFoodSym2);
+                return new Point(x, y, '&');
             }
             else if (random.Next(1, 21) < 6)
             {
-                return new Point(x, y, specialFoodSym3);
+                return new Point(x, y, '/');
             }
             else
             {
-                return new Point(x, y, foodSym);               
-            }            
+                return new Point(x, y, '$');
+            }
         }
     }
 }

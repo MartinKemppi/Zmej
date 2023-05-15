@@ -11,7 +11,8 @@ namespace Zmej
     {
         private int score;
         Direction direction;
-         public Snake(Point tail, int length, Direction _direction)
+        private char currentFoodType;
+        public Snake(Point tail, int length, Direction _direction)
         {
             direction = _direction;
             pList = new List<Point>();
@@ -66,22 +67,25 @@ namespace Zmej
                 direction = Direction.UP;
         }
 
-        internal bool Eat( Point food)
+        internal bool Eat(Point food)
         {
-            Point head = GetNextPoint() ;
-            if (head.IsHit( food ))
-            //if(head.x == food.x && head.y == food.y)
+            Point head = GetNextPoint();
+            if (head.IsHit(food))
             {
-                food.sym = head.sym;
-                pList.Add( food );
+                currentFoodType = food.sym;
+                pList.Add(food);
                 score++;
                 return true;
-
             }
             else
             {
                 return false;
             }
-        }       
+        }
+
+        public char GetCurrentFoodType()
+        {
+            return currentFoodType;
+        }
     }
 }

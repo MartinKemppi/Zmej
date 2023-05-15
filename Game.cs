@@ -25,7 +25,7 @@ namespace Zmej
             Point p = new Point(4, 5, '*');
             snake = new Snake(p, 4, Direction.RIGHT);
             snake.Draw();
-            foodCreator = new FoodCreator(width, height, '$', '#', '&', '/');
+            foodCreator = new FoodCreator(width, height, '$');
             sounds = new Sounds(".");
             sounds.PlayFont();
         }
@@ -45,39 +45,58 @@ namespace Zmej
                     break;
                 }
 
-                if ((DateTime.Now - lastFoodCreationTime).TotalSeconds >= 10)
-                {
-                    Point newFood = foodCreator.CreateFood();
-                    newFood.Draw();
-                    lastFoodCreationTime = DateTime.Now;
-                }
+                //if ((DateTime.Now - lastFoodCreationTime).TotalSeconds >= 10)
+                //{
+                //    Point newFood = foodCreator.CreateFood();
+                //    newFood.Draw();
+                //    lastFoodCreationTime = DateTime.Now;
+                //    food = newFood;
+                //}
 
                 if (snake.Eat(food))
                 {
-                    if (food.sym == '#')
+                    char foodType = snake.GetCurrentFoodType();
+
+                    if (foodType == '#')
                     {
                         totalSpeedIncrease -= 0.25;
+                        score++;
+                        food = foodCreator.CreateFood();
+                        food.Draw();
+                        sounds.PlayEatSound();
+                        Thread.Sleep(200);
+                        sounds.PlayFont();
                     }
-                    else if (food.sym == '&')
+
+                    else if (foodType == '&')
                     {
                         totalSpeedIncrease += 0.35;
+                        score++;
+                        food = foodCreator.CreateFood();
+                        food.Draw();
+                        sounds.PlayEatSound();
+                        Thread.Sleep(200);
+                        sounds.PlayFont();
                     }
-                    else if (food.sym == '/')
-                    {
+
+                    else if (foodType == '/')
+                    {                       
+                        sounds.PlayGameOver();
                         EndGame();
+                        break;
                     }
-                    else
+
+                    else if (foodType == '$')
                     {
                         totalSpeedIncrease += 0.2;
-                    }
+                        score++;
+                        food = foodCreator.CreateFood();
+                        food.Draw();
+                        sounds.PlayEatSound();
+                        Thread.Sleep(200);
+                        sounds.PlayFont();
 
-                    score++;
-
-                    food = foodCreator.CreateFood();
-                    food.Draw();
-                    sounds.PlayEatSound();
-                    Thread.Sleep(200);
-                    sounds.PlayFont();
+                    }                    
                 }
                 else
                 {
@@ -121,7 +140,7 @@ namespace Zmej
             Point p = new Point(4, 5, '*');
             snake = new Snake(p, 21, Direction.RIGHT);
             snake.Draw();
-            foodCreator = new FoodCreator(80-2, 25-2, '$', '#', '&','/');
+            foodCreator = new FoodCreator(80-2, 25-2, '$');
             sounds = new Sounds(".");
             sounds.PlayFont();
 
