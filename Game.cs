@@ -14,8 +14,7 @@ namespace Zmej
         private Walls walls;
         private int score;
         double totalSpeedIncrease = 1;
-        bool hasWon = false;
-        DateTime lastFoodCreationTime;
+        bool hasWon = false;       
 
         public Game(int width, int height)
         {
@@ -34,7 +33,7 @@ namespace Zmej
         {
             Point food = foodCreator.CreateFood();
             food.Draw();
-            lastFoodCreationTime = DateTime.Now;
+            DateTime lastFoodCreationTime = DateTime.Now;
 
             while (true)
             {
@@ -45,13 +44,17 @@ namespace Zmej
                     break;
                 }
 
-                //if ((DateTime.Now - lastFoodCreationTime).TotalSeconds >= 10)
-                //{
-                //    Point newFood = foodCreator.CreateFood();
-                //    newFood.Draw();
-                //    lastFoodCreationTime = DateTime.Now;
-                //    food = newFood;
-                //}
+                DateTime currentTime = DateTime.Now;
+                if ((currentTime - lastFoodCreationTime).TotalSeconds >= 10)
+                {
+                    food = foodCreator.CreateFood();
+                    if (food.sym == '/')
+                    {
+                        food = foodCreator.CreateFood();
+                    }
+                    food.Draw();
+                    lastFoodCreationTime = currentTime;
+                }
 
                 if (snake.Eat(food))
                 {
@@ -115,7 +118,7 @@ namespace Zmej
                 {
                     GG();
                     Thread.Sleep(2000);
-                }
+                }               
             }
         }
 

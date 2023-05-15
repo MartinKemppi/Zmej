@@ -12,6 +12,5 @@ namespace Zmej
         RIGHT,
         UP,
         DOWN
-
     }
 }
