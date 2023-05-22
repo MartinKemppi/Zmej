@@ -32,15 +32,15 @@ namespace Zmej
             int x = random.Next(2, mapWidth - 2);
             int y = random.Next(2, mapHeight - 2);
 
-            if (random.Next(1, 21) < 3)
+            if (random.Next(1, 101) < 31)
             {
                 return new Point(x, y, '#');
             }
-            else if (random.Next(1, 21) < 5)
+            else if (random.Next(1, 101) < 61)
             {
                 return new Point(x, y, '&');
             }
-            else if (random.Next(1, 21) < 6)
+            else if (random.Next(1, 101) < 2)
             {
                 return new Point(x, y, '/');
             }

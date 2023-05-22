@@ -45,7 +45,7 @@ namespace Zmej
                 }
 
                 DateTime currentTime = DateTime.Now;
-                if ((currentTime - lastFoodCreationTime).TotalSeconds >= 10)
+                if ((currentTime - lastFoodCreationTime).TotalSeconds >= 20)
                 {
                     food = foodCreator.CreateFood();
                     if (food.sym == '/')
@@ -106,7 +106,7 @@ namespace Zmej
                     snake.Move();
                 }
 
-                Thread.Sleep((int)(100 * (2 / totalSpeedIncrease)));
+                Thread.Sleep((int)(100 * (1 /totalSpeedIncrease)));
 
                 if (Console.KeyAvailable)
                 {
